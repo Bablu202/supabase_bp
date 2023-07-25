@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+:root {
+  --primary: #12bca2;
+  --secondary: #6d15df;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  color: #333;
+  font-family: "Poppins";
+  background: #f2f2f2;
+}
+nav {
+  background: var(--primary);
+  padding: 10px 20px;
+  text-align: center;
+}
+nav a {
+  color: #f2f2f2;
+  margin: 10px;
+  display: inline-block;
+}
+nav h1 {
+  color: #fff;
+}
+.page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+.AddTask {
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+}
+input {
+  height: 2.5rem;
+  width: 20rem;
+  border: none;
+  background-color: #12bca24b;
+  color: #333;
+  font-family: "Poppins";
+  font-size: large;
+}
+input:hover {
+  border: none;
+  background-color: #fff;
+}
+input:focus {
+  background-color: #fff;
+  border: none;
+}
+input:active {
+  border: none;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  cursor: pointer;
+  color: var(--secondary);
+}
+
+.btn {
+  color: rgb(255, 255, 255);
+  background-color: var(--primary);
+  border: none;
+  margin-left: 1rem;
+  width: 8rem;
+  font-family: "Poppins";
+  font-size: large;
+}
+.btn:hover {
+  background-color: #fff;
+  color: var(--primary);
+  cursor: pointer;
+}
+li {
+  list-style: none;
+  margin: 1rem;
+  background-color: var(--primary);
+  color: #fff;
+  width: 10rem;
+}
+.task {
+  width: 31%;
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+  justify-content: space-between;
+  border: 0.1rem solid #12bca2;
+}
+.taskIcon {
+  border: none;
+}
