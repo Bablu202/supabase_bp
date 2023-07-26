@@ -1,9 +1,7 @@
-const Home = () => {
-  return (
-    <div className="page home">
-      <h2>Home</h2>
-    </div>
-  )
-}
+import Login from "./Login";
 
-export default Home
+const Home = () => {
+  return <div className="page home">Home</div>;
+};
+
+export default Home;

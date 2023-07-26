@@ -1,9 +1,13 @@
+import React from "react";
+import AddTask from "../Components/AddTask";
+import AllTasks from "../Components/AllTasks";
 const Create = () => {
   return (
     <div className="page create">
-      <h2>Create</h2>
+      <AddTask />
+      <AllTasks />
     </div>
-  )
-}
+  );
+};
 
-export default Create
+export default Create;
