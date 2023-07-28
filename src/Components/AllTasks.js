@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import supabase from "../supabase/SupaBaseConfig";
 import Task from "./Task";
+import Login from "../pages/Login";
 // components
 
 export default function AllTasks() {
@@ -37,6 +38,9 @@ export default function AllTasks() {
           ))}
         </div>
       )}
+      <div>
+        <Login />
+      </div>
     </div>
   );
 }

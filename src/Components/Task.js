@@ -34,9 +34,11 @@ export default function Task({ task }) {
         )}
       </div>
       <div className="taskIcons">
-        <button onClick={() => setIsComplete((prev) => !prev)}>
-          <IoMdDoneAll />
-        </button>
+        {!isEdit && (
+          <button onClick={() => setIsComplete((prev) => !prev)}>
+            <IoMdDoneAll />
+          </button>
+        )}
         <button onClick={updateTask}>
           <AiFillEdit />
         </button>

@@ -12,8 +12,9 @@ export default function AddTask() {
     }
     const { data, error } = await supabase.from("tasks").insert([{ title }]);
     if (error) {
-      console.log(error);
       setFormError("plesae check the input Fields");
+      console.log(formError);
+      console.log(error);
     }
     if (data) {
       setFormError(null);
