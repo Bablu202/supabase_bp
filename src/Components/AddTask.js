@@ -27,7 +27,7 @@ export default function AddTask() {
     <form onSubmit={handleSubmit}>
       <div className="AddTask">
         <input
-          placeholder="complete the tasks"
+          placeholder="Add tasks to remain you.."
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}

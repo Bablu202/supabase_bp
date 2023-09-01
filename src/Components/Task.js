@@ -28,20 +28,29 @@ export default function Task({ task }) {
           </div>
         ) : (
           <input
+            className="taskEditMode"
             value={taskText}
             onChange={(e) => setTaskText(e.target.value)}
           />
         )}
       </div>
       <div className="taskIcons">
-        {!isEdit && (
-          <button onClick={() => setIsComplete((prev) => !prev)}>
-            <IoMdDoneAll />
-          </button>
-        )}
-        <button onClick={updateTask}>
+        <button
+          style={{ color: isComplete && "#6d15df" }}
+          disabled={isEdit}
+          onClick={() => setIsComplete((prev) => !prev)}
+        >
+          <IoMdDoneAll />
+        </button>
+
+        <button
+          style={{ color: isEdit && "#6d15df" }}
+          onClick={updateTask}
+          disabled={isComplete}
+        >
           <AiFillEdit />
         </button>
+
         <button onClick={deleteTask}>
           <AiFillDelete />
         </button>
