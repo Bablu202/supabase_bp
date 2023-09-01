@@ -138,11 +138,17 @@ input {
   background: transparent;
   font-size: 1.5rem;
 }
+input:-webkit-autofill {
+  color: var(--green);
+}
 
 input:active {
   box-shadow: 2px 2px 15px var(--low) inset;
 }
 
+h3,
 p {
-  color: var(--red);
+  color: var(--green);
+  text-align: left;
+  margin: 1rem;
 }
