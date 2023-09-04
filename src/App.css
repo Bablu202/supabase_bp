@@ -8,6 +8,7 @@
   --green: #b4cf66;
   --red: #ff5a33;
   --low: #ffec5c;
+  --blue: #6d15df;
 }
 
 .logo {
@@ -37,9 +38,12 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  color: var(--green);
+  margin-right: 0.5rem;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--red);
+  cursor: pointer;
 }
 
 body {
@@ -82,13 +86,13 @@ button:focus-visible {
 }*/
 form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 /* CSS */
 button {
   align-self: center;
-  width: 60%;
+  width: 30%;
   height: 20%;
   font-size: 16px;
   font-weight: 200;
@@ -151,4 +155,33 @@ p {
   color: var(--green);
   text-align: left;
   margin: 1rem;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.add_data {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  margin: 0.5rem;
+  width: 25rem;
+  border: 2px solid var(--low);
+  padding: 1rem;
+  background: transparent;
+  font-size: 1.5rem;
+}
+.task_edit {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 18rem;
 }

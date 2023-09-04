@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import TableData from "../Components/TableData";
+import AddData from "../Components/AddData";
 const Homepage = ({ token }) => {
   let navigate = useNavigate();
 
@@ -8,12 +9,17 @@ const Homepage = ({ token }) => {
     sessionStorage.removeItem("token");
     navigate("/");
   }
-  console.log(token);
+
   return (
     <div>
-      <img />
-      <h3>Welcome back, {token.user.user_metadata.full_name}</h3>
-      <button onClick={handleLogout}>Logout</button>
+      <div className="navbar">
+        <h2>Welcome back, {token.user.user_metadata.full_name}</h2>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+      <div className="table">
+        <AddData />
+        <TableData token={token} />
+      </div>
     </div>
   );
 };

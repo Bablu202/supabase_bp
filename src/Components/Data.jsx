@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import supabase from "../supabase/SupaBaseConfig";
+import React, { useEffect, useState } from "react";
+import { supabase } from "../supabase/client";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { IoMdDoneAll } from "react-icons/io";
-export default function Task({ task }) {
+
+export default function Data({ task }) {
   const [isEdit, setIsEdit] = useState(false);
   const [taskText, setTaskText] = useState(task.title);
-  const [isComplete, setIsComplete] = useState(false);
-
+  const [isComplete, setIsComplete] = useState(task.isDone);
   //delete task
+
   const deleteTask = async () => {
     await supabase.from("tasks").delete().eq("id", task.id);
   };
@@ -19,41 +20,53 @@ export default function Task({ task }) {
     await supabase.from("tasks").update({ title: taskText }).eq("id", task.id);
   };
 
+  const updateIsDone = async (e) => {
+    //if (!isEdit) return;
+    e.preventDefault();
+    console.log(task.title, isComplete);
+    setIsComplete((prev) => !prev);
+    await supabase
+      .from("tasks")
+      .update({ isDone: isComplete })
+      .eq("id", task.id);
+    console.log(task.title, isComplete);
+  };
+
   return (
     <div className="task">
-      <div className="taskText" onDoubleClick={updateTask}>
+      <div onDoubleClick={updateTask}>
         {!isEdit ? (
           <div style={{ textDecoration: isComplete && "line-through" }}>
             {task.title}
           </div>
         ) : (
           <input
-            className="taskEditMode"
+            className="task_edit"
             value={taskText}
             onChange={(e) => setTaskText(e.target.value)}
           />
         )}
       </div>
       <div className="taskIcons">
-        <button
+        <a
           style={{ color: isComplete && "#6d15df" }}
           disabled={isEdit}
-          onClick={() => setIsComplete((prev) => !prev)}
+          onClick={updateIsDone}
         >
           <IoMdDoneAll />
-        </button>
+        </a>
 
-        <button
+        <a
           style={{ color: isEdit && "#6d15df" }}
           onClick={updateTask}
           disabled={isComplete}
         >
           <AiFillEdit />
-        </button>
+        </a>
 
-        <button onClick={deleteTask}>
+        <a onClick={deleteTask}>
           <AiFillDelete />
-        </button>
+        </a>
       </div>
     </div>
   );
